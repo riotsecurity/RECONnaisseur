@@ -198,7 +198,7 @@ CmsScan () {
 	for webserver in `cat ${webServers}`; do
 			host=`echo ${webserver} | cut -d ":" -f 2 | sed -s 's#//##g'`
 			urlName=`echo ${webserver} | sed -s 's#//##g' | sed -s 's/:/_/g'` # for naming the file
-			cmseek -u ${webserver} > ${outputDir}/${host}/cmseek_${urlName}.txt
+			cmseek -u ${webserver} --no-redirect > ${outputDir}/${host}/cmseek_${urlName}.txt
 	done
 	echo " [+] You will find the cmseek output for each webserver at: ${outputDir}/<IP>/cmseek_*"
 }
